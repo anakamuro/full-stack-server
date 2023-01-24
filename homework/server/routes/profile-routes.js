@@ -1,7 +1,7 @@
 const express = require('express');
 
 const {handle404} = require('../lib/custom-errors')
-
+//const {requireToken} = require('../config/auth')
 
 const Profile = require('../models/profiles')
 

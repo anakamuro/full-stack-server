@@ -7,6 +7,12 @@ const db = require('./config/db')
 const PORT = 8001
 
 const profileRoutes = require('./routes/profile-routes')
+const extraRoutes = require('./routes/extra-routes')
+const requestLogger = require('./lib/request-logger')
+const ProfileSeed = require('./lib/profile-seed')
+const userRoutes = require('./routes/user-routes')
+const nameRoutes = require('./routes/name-routes')
+
 
 // deprecation warning
 mongoose.set('strictQuery', true)
@@ -28,6 +34,12 @@ app.use(express.json())
 
 // server needs to know about this router!!!
 app.use(profileRoutes)
+app.use(extraRoutes)
+app.use(requestLogger)
+app.use(ProfileSeed)
+app.use(nameRoutes)
+app.use(userRoutes)
+//app._router.use('/seed', profileSeed)
 
 app.listen(PORT, () => {
     console.log('listening on ' + PORT)

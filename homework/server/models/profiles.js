@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const extraSchema = require('./extra')
 const Schema = mongoose.Schema
 
 const profileSchema = new Schema(
